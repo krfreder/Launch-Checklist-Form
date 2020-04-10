@@ -4,6 +4,7 @@ window.addEventListener("load", function() {
    launchForm.addEventListener("submit", function() {
       // test code::: alert("submit clicked");
       validate();
+      updateShuttleRequirements();
    });
 });
 
@@ -24,6 +25,18 @@ function validate() {
    if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
       alert("Oh no, you need a number yo!");
    }
+}
+
+function updateShuttleRequirements() {
+   const faultyItems = document.getElementById("faultyItems");
+   const pilotStatus = document.getElementById("pilotStatus");
+   const copilotStatus = document.getElementById("copilotStatus");
+   const fuelStatus = document.getElementById("fuelStatus");
+   const cargoStatus = document.getElementById("cargoStatus");
+
+   pilotStatus.innerHTML = `${pilotName.value} Ready`;
+
+   console.log(faultyItems);
 }
 
 
