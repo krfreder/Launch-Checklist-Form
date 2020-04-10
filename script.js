@@ -15,11 +15,14 @@ function validate() {
 
    // test code::: alert("function was called");
    if (pilotName.value === '' || copilotName.value === '' || fuelLevel.value === '' || cargoMass.value === '') {
-      alert("We can't launch this thing without all necessary information, please complete the form.");
+      alert("The people at NASA complete their forms. Let's be like the people at NASA and try again.");
       event.preventDefault();
    }
-   if (!isNaN(pilotName) || !isNaN(copilotName)) {
-      alert("Hooray! Stringy-stringy-string");
+   if (!isNaN(pilotName.value) || !isNaN(copilotName.value)) {
+      alert("Letters only please and thank you.");
+   }
+   if (isNaN(fuelLevel.value) || isNaN(cargoMass.value)) {
+      alert("Oh no, you need a number yo!");
    }
 }
 
