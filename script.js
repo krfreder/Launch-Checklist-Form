@@ -1,8 +1,24 @@
 window.addEventListener("load", function() {
    const launchForm = document.getElementById("launchForm");
-
+   // add planet destination
+   fetch("https://handlers.education.launchcode.org/static/planets.json").then(function(showPlanet) {
+      showPlanet.json().then(function(json) {
+         const missionTarget = document.getElementById("missionTarget");
+         missionTarget.innerHTML = `
+            <h2>Mission Destination</h2>
+            <ol>
+               <li>Name: ${json[0].name}</li>
+               <li>Diameter: ${json[0].diameter}</li>
+               <li>Star: ${json[0].star}</li>
+               <li>Distance from Earth: ${json[0].distance}</li>
+               <li>Number of Moons: ${json[0].moons}</li>
+            </ol>
+            <img src="${json[0].image}">
+         `;
+      });
+   });
+// call validation
    launchForm.addEventListener("submit", function() {
-      // test code::: alert("submit clicked");
       validateAndUpdate();
    });
 });
